@@ -1,65 +1,22 @@
-import { ReactElement, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { ReactElement } from 'react';
 
-import { Photo } from 'types/photo';
-import {
-  getRandomPhoto,
-  // approvePhoto,
-  // rejectPhoto
-} from '@redux/actions/photoAction';
-import { DefaultStateType } from '@redux/reducers/photoReducer';
+import Container from '@components/styled/Container.styled';
+import Divider from '@components/styled/Divider.styled';
+import Header from '@components/Header';
+import PhotoViewer from '@components/PhotoViewer';
 
-interface AppProps {}
-
-function App({}: AppProps): ReactElement {
-  const dispatch = useDispatch();
-
-  const randomPhoto = useSelector(
-    (state: DefaultStateType) => state.randomPhoto
-  );
-  const approvedPhotos = useSelector(
-    (state: DefaultStateType) => state.approvedPhotos
-  );
-  const rejectedPhotos = useSelector(
-    (state: DefaultStateType) => state.rejectedPhotos
-  );
-
-  const [photoToShow, setPhotoToShow] = useState<Photo | null>(null);
-
-  useEffect(() => {
-    console.log(approvedPhotos);
-  }, [approvedPhotos]);
-
-  useEffect(() => {
-    if (!randomPhoto) return;
-
-    const randomPhotoId: string = randomPhoto.photo?.id as string;
-    if (rejectedPhotos.includes(randomPhotoId)) {
-      dispatch(getRandomPhoto());
-      return;
-    }
-
-    setPhotoToShow(randomPhoto.photo);
-  }, [randomPhoto]);
-
-  const onClickHandler = () => {
-    dispatch(getRandomPhoto());
-  };
-
+function App(): ReactElement {
   return (
     <div className="App">
-      <h1>App page</h1>
+      <Container>
+        <Header />
 
-      <button onClick={onClickHandler}>Get random photo</button>
+        <div style={{ height: 120 }}>selected images</div>
 
-      {photoToShow ? (
-        <img
-          src={randomPhoto.photo?.urls.regular}
-          alt={randomPhoto.photo?.description}
-        />
-      ) : (
-        <div>click +</div>
-      )}
+        <Divider />
+
+        <PhotoViewer />
+      </Container>
     </div>
   );
 }

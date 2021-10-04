@@ -13,11 +13,12 @@ import { PhotoDispatchTypes } from '@redux/actions/photoActionTypes';
 const STORAGE_KEY_APPROVED = 'IAA_PHOTOS_APPROVED';
 const STORAGE_KEY_REJECTED = 'IAA_PHOTOS_REJECTED';
 
+export interface RandomPhotoStateType {
+  loading: boolean;
+  photo: Photo | null;
+}
 export interface DefaultStateType {
-  randomPhoto: {
-    loading: boolean;
-    photo: Photo | null;
-  };
+  randomPhoto: RandomPhotoStateType;
   approvedPhotos: Photo[];
   rejectedPhotos: string[];
 }
