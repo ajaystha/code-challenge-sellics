@@ -8,6 +8,7 @@ import Container from '@components/styled/Container.styled';
 import Divider from '@components/styled/Divider.styled';
 import Header from '@components/Header';
 import PhotoViewer from '@components/PhotoViewer';
+import ApprovedPhotoViewer from '@components/ApprovedPhotoViewer';
 
 function App(): ReactElement {
   return (
@@ -18,7 +19,7 @@ function App(): ReactElement {
         <Container>
           <Header />
 
-          <div style={{ height: 120 }}>selected images</div>
+          <ApprovedPhotoViewer />
 
           <Divider />
 

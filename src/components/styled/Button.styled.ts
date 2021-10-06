@@ -5,6 +5,7 @@ interface StyledButtonProps {
   width?: string;
   height?: string;
 }
+
 const Button = styled.button<StyledButtonProps>`
   color: white;
   text-align: center;
