@@ -1,5 +1,6 @@
-import { ReactElement } from 'react';
+import { ReactElement, useContext } from 'react';
 import { useDispatch } from 'react-redux';
+import { ThemeContext } from 'styled-components';
 
 import { Photo } from 'types/photo';
 import { approvePhoto, rejectPhoto } from '@redux/actions/photoAction';
@@ -19,6 +20,7 @@ export default function PhotoButtons(props: PhotoButtonsProps): ReactElement {
   const { photoToShow } = props;
 
   const dispatch = useDispatch();
+  const themeContext = useContext(ThemeContext);
 
   const handleApprovePhoto = () => {
     const photoToApprove: Photo = photoToShow as Photo;
@@ -33,11 +35,17 @@ export default function PhotoButtons(props: PhotoButtonsProps): ReactElement {
     <>
       {photoToShow ? (
         <PhotoButtonWrapper>
-          <Button backgroundColor="#454545" onClick={handleRejectPhoto}>
+          <Button
+            backgroundColor={themeContext.colors.darkGray}
+            onClick={handleRejectPhoto}
+          >
             <CloseIcon fill="#fff" width="24" height="24" />
           </Button>
 
-          <Button backgroundColor="#3b55e6" onClick={handleApprovePhoto}>
+          <Button
+            backgroundColor={themeContext.colors.blue}
+            onClick={handleApprovePhoto}
+          >
             <CheckIcon fill="#fff" width="24" height="24" />
           </Button>
         </PhotoButtonWrapper>

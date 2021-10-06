@@ -1,5 +1,6 @@
-import { ReactElement } from 'react';
+import { ReactElement, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ThemeContext } from 'styled-components';
 
 import {
   DefaultStateType,
@@ -16,6 +17,7 @@ import Spinner from './styled/Spinner.styled';
 
 export default function PhotoViewer(): ReactElement {
   const dispatch = useDispatch();
+  const themeContext = useContext(ThemeContext);
 
   const { loading, photo }: RandomPhotoStateType = useSelector(
     (state: DefaultStateType) => state.randomPhoto
@@ -35,7 +37,11 @@ export default function PhotoViewer(): ReactElement {
           <Image image={imageUrl} />
         ) : (
           <Button onClick={() => dispatch(getRandomPhoto())}>
-            <PlusIcon fill="#e3e8f0" width="150" height="150" />
+            <PlusIcon
+              fill={themeContext.colors.lightGray}
+              width="150"
+              height="150"
+            />
           </Button>
         )}
       </PhotoWrapper>

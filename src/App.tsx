@@ -1,4 +1,8 @@
 import { ReactElement } from 'react';
+import { ThemeProvider } from 'styled-components';
+
+import { theme } from '@shared/theme';
+import GlobalStyle from '@components/styled/Global.styled';
 
 import Container from '@components/styled/Container.styled';
 import Divider from '@components/styled/Divider.styled';
@@ -7,17 +11,21 @@ import PhotoViewer from '@components/PhotoViewer';
 
 function App(): ReactElement {
   return (
-    <div className="App">
-      <Container>
-        <Header />
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
 
-        <div style={{ height: 120 }}>selected images</div>
+      <>
+        <Container>
+          <Header />
 
-        <Divider />
+          <div style={{ height: 120 }}>selected images</div>
 
-        <PhotoViewer />
-      </Container>
-    </div>
+          <Divider />
+
+          <PhotoViewer />
+        </Container>
+      </>
+    </ThemeProvider>
   );
 }
 

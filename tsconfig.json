@@ -21,6 +21,7 @@
       "@hooks/*": ["hooks/*"],
       "@redux/*": ["redux/*"],
       "@api/*": ["api/*"],
+      "@shared/*": ["shared/*"],
     }
   },
   "include": ["./src"]

@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 import { AxiosResponse } from 'axios';
 
 import { http } from '@api/http';
-import { checkRejectedPhotos } from '../../shared/helper';
+import { checkRejectedPhotos } from '@shared/helper';
 import { Photo } from 'types/photo';
 import {
   RANDOM_PHOTO_LOADING,

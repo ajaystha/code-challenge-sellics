@@ -12,6 +12,7 @@ export default defineConfig({
       '@hooks': path.resolve(__dirname, './src/hooks'),
       '@redux': path.resolve(__dirname, './src/redux'),
       '@api': path.resolve(__dirname, './src/api'),
+      '@shared': path.resolve(__dirname, './src/shared'),
     },
   },
   plugins: [react()],

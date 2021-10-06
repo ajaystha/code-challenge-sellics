@@ -1,8 +1,10 @@
 import { ReactElement } from 'react';
 
+import { ThemeType } from '@shared/theme';
+
 import styled from 'styled-components';
 
-export const StyledHeader = styled.header`
+export const StyledHeader = styled.header<{ theme: ThemeType }>`
   position: absolute;
   top: 0;
   left: 0;
@@ -12,9 +14,9 @@ export const StyledHeader = styled.header`
   align-items: center;
   height: 50px;
   padding-left: 1rem;
-  color: #3b55e6;
+  color: ${({ theme }) => theme.colors.blue};
   text-transform: uppercase;
-  border-bottom: 1px solid #e3e8f0;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.lightGray};
 `;
 
 export default function Header(): ReactElement {
