@@ -1,10 +1,9 @@
 import { ReactElement } from 'react';
+import styled from 'styled-components';
 
 import { ThemeType } from '@shared/theme';
 
-import styled from 'styled-components';
-
-export const StyledHeader = styled.header<{ theme: ThemeType }>`
+const StyledHeader = styled.header<{ theme: ThemeType }>`
   position: absolute;
   top: 0;
   left: 0;
