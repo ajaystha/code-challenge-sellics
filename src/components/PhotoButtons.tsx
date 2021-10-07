@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 import { ThemeContext } from 'styled-components';
 
 import { Photo } from 'types/photo';
-import { approvePhoto, rejectPhoto } from '@redux/actions/photoAction';
+import { approvePhoto } from '@redux/actions/approvedPhoto.action';
+import { rejectPhoto } from '@redux/actions/rejectedPhotoAction';
 
 import Info from './styled/Message';
 import PhotoButtonWrapper from './styled/PhotoButtonWrapper';

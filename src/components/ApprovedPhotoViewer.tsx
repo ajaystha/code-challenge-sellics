@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components';
 import Carousel from 'react-elastic-carousel';
 
-import { Photo } from 'types/photo';
-import { DefaultStateType } from '@redux/reducers/photoReducer';
+import { ApprovedPhotoStateType } from '@redux/reducers/approvedPhotoReducer';
+import { AppStateType } from '@redux/reducers/rootReducer';
 
 import PhotoWrapper from './styled/PhotoWrapper.styled';
 import Image from './styled/Image.styled';
@@ -14,8 +14,8 @@ import PlusIcon from '@components/icons/Plus';
 export default function ApprovedImageViewer(): ReactElement {
   const themeContext = useContext(ThemeContext);
 
-  const photos: Photo[] = useSelector(
-    (state: DefaultStateType) => state.approvedPhotos
+  const { photos }: ApprovedPhotoStateType = useSelector(
+    (state: AppStateType) => state.approvedPhotos
   );
 
   return (

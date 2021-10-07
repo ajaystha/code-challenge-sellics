@@ -2,11 +2,9 @@ import { ReactElement, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components';
 
-import {
-  DefaultStateType,
-  RandomPhotoStateType,
-} from '@redux/reducers/photoReducer';
-import { getRandomPhoto } from '@redux/actions/photoAction';
+import { RandomPhotoStateType } from '@redux/reducers/randomPhotoReducer';
+import { AppStateType } from '@redux/reducers/rootReducer';
+import { getRandomPhoto } from '@redux/actions/randomPhotoAction';
 
 import PhotoWrapper from './styled/PhotoWrapper.styled';
 import Image from './styled/Image.styled';
@@ -20,7 +18,7 @@ export default function PhotoViewer(): ReactElement {
   const themeContext = useContext(ThemeContext);
 
   const { loading, photo }: RandomPhotoStateType = useSelector(
-    (state: DefaultStateType) => state.randomPhoto
+    (state: AppStateType) => state.randomPhoto
   );
 
   let imageUrl: string = '';

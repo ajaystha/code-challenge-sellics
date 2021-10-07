@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { Toaster } from 'react-hot-toast';
 
 import { theme } from '@shared/theme';
 import GlobalStyle from '@components/styled/Global.styled';
@@ -14,18 +15,17 @@ function App(): ReactElement {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <Toaster position="top-right" />
 
-      <>
-        <Container>
-          <Header />
+      <Container>
+        <Header />
 
-          <ApprovedPhotoViewer />
+        <ApprovedPhotoViewer />
 
-          <Divider />
+        <Divider />
 
-          <PhotoViewer />
-        </Container>
-      </>
+        <PhotoViewer />
+      </Container>
     </ThemeProvider>
   );
 }
