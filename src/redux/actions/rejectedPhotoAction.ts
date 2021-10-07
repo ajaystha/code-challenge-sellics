@@ -24,7 +24,7 @@ export const rejectPhoto = (newRejectedPhoto: string) => {
         newRejectedPhoto,
       ];
 
-      localStorage.setItems(
+      localStorage.setItem(
         STORAGE_KEY_REJECTED,
         JSON.stringify(updatedRejectedPhotos)
       );

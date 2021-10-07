@@ -25,7 +25,7 @@ export const approvePhoto = (newApprovedPhoto: Photo) => {
         newApprovedPhoto,
       ];
 
-      localStorage.setItems(
+      localStorage.setItem(
         STORAGE_KEY_APPROVED,
         JSON.stringify(updatedApprovedPhotos)
       );

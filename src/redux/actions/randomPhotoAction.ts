@@ -21,7 +21,7 @@ export const getRandomPhoto = () => {
     dispatch({ type: RANDOM_PHOTO_LOADING });
 
     try {
-      const res: AxiosResponse = await http.get('/photos/randoms');
+      const res: AxiosResponse = await http.get('/photos/random');
 
       const { data }: { data: Photo } = res;
       const { rejectedPhotos } = getState();
